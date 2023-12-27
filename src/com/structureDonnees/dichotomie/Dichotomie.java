@@ -1,5 +1,9 @@
 package com.structureDonnees.dichotomie;
 
+/*
+ * La recherche dichotomique est de complexité log2(n) car l'approche de la solution est divisée par 2 à chaque étape
+ */
+
 public class Dichotomie {
 	
 	public static void afficherTableau(int[] tableau) {
