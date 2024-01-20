@@ -29,26 +29,29 @@ public class Main {
 
     public static void main(String[] args) {
 
-/******************************************* LES ARBRES avec Tableau : *****************************************************************************/
-	// new arbre(taille, degre) => necessaire pour initialiser la dimension des tableaux
-	Arbre arbre = new Arbre(13,3);
+	/*******************************************
+	 * LES ARBRES avec Tableau :
+	 *****************************************************************************/
+	// new arbre(taille, degre) => necessaire pour initialiser la dimension des
+	// tableaux
+	Arbre arbre = new Arbre(13, 3);
 	arbre.getNoeudByInfo("A").addFils(arbre.getNoeudByInfo("B"));
 	arbre.getNoeudByInfo("A").addFils(arbre.getNoeudByInfo("C"));
 	arbre.getNoeudByInfo("A").addFils(arbre.getNoeudByInfo("D"));
-	
+
 	arbre.getNoeudByInfo("B").addFils(arbre.getNoeudByInfo("E"));
 	arbre.getNoeudByInfo("B").addFils(arbre.getNoeudByInfo("F"));
-	
+
 	arbre.getNoeudByInfo("C").addFils(arbre.getNoeudByInfo("G"));
 	arbre.getNoeudByInfo("C").addFils(arbre.getNoeudByInfo("H"));
 	arbre.getNoeudByInfo("C").addFils(arbre.getNoeudByInfo("I"));
-	
+
 	arbre.getNoeudByInfo("H").addFils(arbre.getNoeudByInfo("L"));
 	arbre.getNoeudByInfo("H").addFils(arbre.getNoeudByInfo("M"));
-	
+
 	arbre.getNoeudByInfo("D").addFils(arbre.getNoeudByInfo("J"));
 	arbre.getNoeudByInfo("D").addFils(arbre.getNoeudByInfo("K"));
-	
+
 	arbre.getNoeudByInfo("B").setPredecesseur(arbre.getNoeudByInfo("A"));
 	arbre.getNoeudByInfo("C").setPredecesseur(arbre.getNoeudByInfo("A"));
 	arbre.getNoeudByInfo("D").setPredecesseur(arbre.getNoeudByInfo("A"));
@@ -61,13 +64,13 @@ public class Main {
 	arbre.getNoeudByInfo("K").setPredecesseur(arbre.getNoeudByInfo("D"));
 	arbre.getNoeudByInfo("L").setPredecesseur(arbre.getNoeudByInfo("H"));
 	arbre.getNoeudByInfo("M").setPredecesseur(arbre.getNoeudByInfo("H"));
-	
+
 	if (arbre.estVide()) {
 	    System.out.println("l'arbre est vide");
 	} else {
 	    System.out.println("L'arbre n'est pas vide");
 	}
-	
+
 	if (arbre.getNoeudByInfo("K").estFeuille()) {
 	    System.out.println("le noeud K est une feuille");
 	} else {
@@ -79,15 +82,29 @@ public class Main {
 	} else {
 	    System.out.println("Le noeud C n'est pas une feuille");
 	}
-	
+
 	arbre.parcoursEnProfondeurPrefixe(arbre.getRacine());
 	System.out.println();
 	arbre.parcoursEnProfondeurPostfixe(arbre.getRacine());
 	System.out.println();
 	arbre.parcoursEnLargeur(arbre.getRacine());
-		
+
+	// methode trouver
+	if (arbre.trouver(arbre.getNoeudByInfo("C"), arbre.getNoeudByInfo("M"))) {
+	    System.out.println("trouver() : Ce noeud a été trouvé");
+	} else {
+	    System.out.println("trouver() : Ce noeud n'existe pas dans cet arbre ou branche");
+	}
+
+	// methode rechercher, meme methode que trouver avec argument différent et algo
+	// plus optimisé (recursion)
+
+	if (arbre.rechercher(arbre.getNoeudByInfo("A"), "M")) {
+	    System.out.println("rechecher() : Ce noeud a été trouvé");
+	} else {
+	    System.out.println("Rechercher() : Ce noeud n'existe pas dans cet arbre ou branche");
+	}
+
     }
-    
-    
 
 }
