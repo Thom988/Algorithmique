@@ -1,4 +1,4 @@
-package com.structureDonnees.dichotomie;
+package com.structureDonnees.exercices;
 
 /*
  * La recherche dichotomique est de complexité log2(n) car l'approche de la solution est divisée par 2 à chaque étape
