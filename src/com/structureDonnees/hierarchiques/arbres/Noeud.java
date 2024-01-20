@@ -13,10 +13,14 @@ _ Chaque noeud a au plus un prédécesseur
 package com.structureDonnees.hierarchiques.arbres;
 
 public class Noeud {
-
+    
     private String info;
-    private Noeud[] listeFils = new Noeud[3];
+    private Noeud[] listeFils;
     private Noeud predecesseur;
+    
+    public Noeud(int degreArbre) {
+	this.listeFils = new Noeud[degreArbre];
+    }
 
 
     public String getInfo() {

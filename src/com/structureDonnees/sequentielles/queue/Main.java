@@ -31,7 +31,7 @@ public class Main {
 	fileParDecalage.defiler();
 	fileParDecalage.afficher();
 	
-/******************************* FILE PAR FLOT (implémentation statique) => tableau "circulaire" ********µµµµµµµµµµµµµµ*********************/
+/******************************* FILE PAR FLOT (implémentation statique) => tableau "circulaire" *****************************/
 //                            les modulo % permettent de parcourir le tableau de manière circulaire 	
 	
 	

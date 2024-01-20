@@ -14,7 +14,7 @@ public class FileParFlot {
 	    System.out.println("Impossible d'enfiler, la file est pleine");
 	} else {
 	    tableau[this.queue] = nombre;
-	    this.queue = (this.queue + 1)%tableau.length;
+	    this.queue = (this.queue + 1) % tableau.length;
 	}
     }
 

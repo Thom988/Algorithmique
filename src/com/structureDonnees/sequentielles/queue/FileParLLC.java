@@ -16,13 +16,13 @@ public class FileParLLC<T> {
 	Maillon<T> maillon = new Maillon<T>();
 	maillon.setValeur(valeur); //affecter valeur
 	maillon.setSuivant(null); //mettre ref objet suivant à null
-	if (this.queue != null) {
+	if (this.tete != null) {
 	    this.queue.setSuivant(maillon);
 	} else {
 	    this.tete = maillon;
 	}
 	this.queue = maillon;
-	System.out.println("la valeur " + valeur + " a été empilée");
+	//System.out.println("la valeur " + valeur + " a été enfilée");
     }
     
     public void defiler() {
@@ -31,7 +31,7 @@ public class FileParLLC<T> {
 	} else {
 	    T valeur = this.tete.getValeur();
 	    this.tete = this.tete.getSuivant();
-	    System.out.println("la valeur " + valeur + " a été défilée");
+	    //System.out.println("la valeur " + valeur + " a été défilée");
 	}
 	
     }
@@ -49,6 +49,8 @@ public class FileParLLC<T> {
 	}
     }
     
+	
+    
     public boolean estVide() {
 	if (this.tete == null) {
 	    return true;
@@ -57,3 +59,4 @@ public class FileParLLC<T> {
 	}
     }
 }
+
