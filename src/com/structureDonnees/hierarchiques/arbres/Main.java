@@ -10,6 +10,13 @@
     Représentation : tableau ou liste non linéaire (un maillon, ici noeud (pere), 
     peut être référencé par plusieurs autres noeuds (fils)
     
+     Arbre m-aire : un arbre m-aire d’ordre n est un arbre ou le degré maximum d’un
+     		    noeud est égal à n.
+     B-Arbre : Un arbre B d’ordre n est un arbre où :
+                  – la racine a au moins 2 fils
+                  – chaque noeud, autre que la racine, a entre n/2 et n fils
+                  – tous les noeuds feuilles sont au même niveau
+    
    les arbres peuvent être réalisés avec des tableaux ou des listes. 
    Il existe le parcours en profondeur et en largeur : 
    	- Profondeur : on descend le plus profondément possible dans
