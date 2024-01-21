@@ -1,21 +1,18 @@
-package com.structureDonnees.hierarchiques.abr;
+package com.structureDonnees.hierarchiques.tas;
 
+import com.structureDonnees.hierarchiques.abr.NoeudBinaire;
 import com.structureDonnees.sequentielles.queue.FileParLLC;
 
-public class ArbreBinaireDeRecherche {
+public class Tas {
 
     int taille;
     NoeudBinaire[] noeuds;
     FileParLLC<NoeudBinaire> file = new FileParLLC<NoeudBinaire>();
+    private char cmptNoeuds = 'A';
 
-    public ArbreBinaireDeRecherche(int taille, int degre) {
+    public Tas(int taille, int degre) {
 	this.taille = taille;
 	this.noeuds = new NoeudBinaire[taille];
-	char car = 'A';
-	for (int i = 0; i < this.noeuds.length; i++) {
-	    this.noeuds[i] = new NoeudBinaire(Character.toString(car));
-	    car++;
-	}
     }
 
     public void affecterFilsG(NoeudBinaire fils, NoeudBinaire noeud) {
@@ -80,24 +77,73 @@ public class ArbreBinaireDeRecherche {
 		noeud = this.file.tete.getValeur();
 		System.out.print(noeud.getInfo() + "(" + noeud.getCle() + ") ");
 		this.file.defiler();
-		if (noeud.getFilsG() != null ) {
+		if (noeud.getFilsG() != null) {
 		    this.file.enfiler(noeud.getFilsG());
 		}
-		if (noeud.getFilsD() != null ) {
+		if (noeud.getFilsD() != null) {
 		    this.file.enfiler(noeud.getFilsD());
 		}
 	    }
 	}
     }
-    
-    public NoeudBinaire rechercher(NoeudBinaire noeud, int cle) {
-	if (noeud == null || cle == noeud.getCle()) {
-	    return noeud;
-	} else if (noeud.getCle() > cle) {
-	    return rechercher(noeud.getFilsG(), cle);
+
+// Specifique au TAS ************************************************************************
+
+    public boolean estVide() {
+	if (getRacine() == null) {
+	    return true;
 	} else {
-	    return rechercher(noeud.getFilsD(), cle);
+	    return false;
 	}
+    }
+
+    public void ajout(int cle) {
+	NoeudBinaire noeud = chercherNoeudImcomplet();
+	NoeudBinaire n = new NoeudBinaire(Character.toString(this.cmptNoeuds), cle, noeud);
+	if (noeud == null) {
+	    this.noeuds[0] = n;
+	} else {
+	    if (noeud.getFilsG() == null) {
+		noeud.setFilsG(n);
+	    } else {
+		noeud.setFilsD(n);
+	    }
+	}
+	this.cmptNoeuds++;
+	trierPriorite(n);
+    }
+
+    // A corriger !!!!!!!!!!!!!
+    private void trierPriorite(NoeudBinaire noeud) {
+	NoeudBinaire n;
+	while (noeud.getPredecesseur()!= null && noeud.getPredecesseur().getCle() < noeud.getCle() ) {
+	    n = noeud;
+	    noeud = noeud.getPredecesseur();
+	    noeud.setPredecesseur(n);	    
+	}
+    }
+
+    public void retrait() {
+
+    }
+
+    private NoeudBinaire chercherNoeudImcomplet() {
+	this.file = new FileParLLC<NoeudBinaire>();
+	NoeudBinaire noeud = this.noeuds[0];
+	if (noeud != null) {
+	    this.file.enfiler(getRacine());
+	    while (!this.file.estVide()) {
+		noeud = this.file.tete.getValeur();
+		this.file.defiler();
+		if (noeud.getFilsG() == null || noeud.getFilsD() == null) {
+		    return noeud;
+		} else {
+		    this.file.enfiler(noeud.getFilsG());
+		    this.file.enfiler(noeud.getFilsD());
+		}
+	    }
+	}
+	return null;
     }
 
 }

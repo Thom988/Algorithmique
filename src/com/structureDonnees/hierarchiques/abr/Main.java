@@ -71,7 +71,7 @@ public class Main {
 	abr.parcoursEnLargeur(abr.getRacine());
 	
 	System.out.println("\nRecherche d'un noeud :");
-	Noeud noeud = abr.rechercher(abr.getRacine(), 9);
+	NoeudBinaire noeud = abr.rechercher(abr.getRacine(), 9);
 	if(noeud != null) {
 	    System.out.println("Le noeud " + noeud.getInfo() + "(" + noeud.getCle() + ") a été trouvé");
 	} else {

@@ -1,14 +1,20 @@
 package com.structureDonnees.hierarchiques.abr;
 
-public class Noeud {
+public class NoeudBinaire {
     private int cle;
     private String info;
-    private Noeud predecesseur;
-    private Noeud filsG;
-    private Noeud filsD;
+    private NoeudBinaire predecesseur;
+    private NoeudBinaire filsG;
+    private NoeudBinaire filsD;
     
-    public Noeud(String info) {
+    public NoeudBinaire(String info) {
 	this.info = info;
+    }
+    
+    public NoeudBinaire(String info, int cle, NoeudBinaire predecesseur) {
+	this.info = info;
+	this.cle = cle;
+	this.predecesseur = predecesseur;
     }
 
     public int getCle() {
@@ -27,27 +33,27 @@ public class Noeud {
 	this.info = info;
     }
 
-    public Noeud getPredecesseur() {
+    public NoeudBinaire getPredecesseur() {
 	return predecesseur;
     }
 
-    public void setPredecesseur(Noeud predecesseur) {
+    public void setPredecesseur(NoeudBinaire predecesseur) {
 	this.predecesseur = predecesseur;
     }
 
-    public Noeud getFilsG() {
+    public NoeudBinaire getFilsG() {
 	return filsG;
     }
 
-    public void setFilsG(Noeud filsG) {
+    public void setFilsG(NoeudBinaire filsG) {
 	this.filsG = filsG;
     }
 
-    public Noeud getFilsD() {
+    public NoeudBinaire getFilsD() {
 	return filsD;
     }
 
-    public void setFilsD(Noeud filsD) {
+    public void setFilsD(NoeudBinaire filsD) {
 	this.filsD = filsD;
     }
 
@@ -67,7 +73,7 @@ public class Noeud {
 	}
     }
     
-    public int getDegre(Noeud noeud) {
+    public int getDegre(NoeudBinaire noeud) {
 	if (noeud == null) {
 	    return 0;
 	} else if (noeud.filsD != null && noeud.filsD != null) {
