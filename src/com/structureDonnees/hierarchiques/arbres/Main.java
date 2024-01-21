@@ -104,6 +104,8 @@ public class Main {
 	} else {
 	    System.out.println("Rechercher() : Ce noeud n'existe pas dans cet arbre ou branche");
 	}
+	
+	System.out.println(arbre.calculerTaille(arbre.getRacine()));
 
     }
 

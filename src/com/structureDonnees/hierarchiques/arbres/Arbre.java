@@ -150,7 +150,18 @@ public class Arbre {
 		return trouv;
 	    }
 	}
-	
+    }
+    
+    public int calculerTaille(Noeud noeud) {
+	if(noeud == null) {
+	    return 0;
+	} else {
+	    int taille = 1;
+	    for (int i = 0; i < noeud.getDegre(); i++) {
+		taille = taille + calculerTaille(noeud.getFils(i));
+	    } 
+	    return taille;
+	}
     }
 
 }
