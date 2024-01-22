@@ -1,13 +1,21 @@
 /*
-Les tas peuvent être implémentés dynamiquement exactement comme les ARB, et sont
+Un tas (heap en anglais) est un arbre qui vérifie les deux propriétés suivantes :
+1) C’est un arbre binaire complet c’est-à-dire un arbre binaire dont tous les niveaux sont
+remplis sauf éventuellement le dernier où les éléments sont rangés le plus à gauche
+possible.
+2) La clé de tout nœud est supérieure à celle de ses descendants.
+L’élément le plus prioritaire se trouve donc toujours à la racine.
+
+
+Les tas peuvent être implémentés dynamiquement exactement comme les ABR, et sont
 utilisés par le même modèle.
 Une représentation statique très efficace utilisant des tableaux est très utilisée en pratique,
 elle consiste à ranger les éléments du tas dans un tableau selon un parcours en largeur.
 
 [16,14,10,8,7,9,3,2,4,1]
-  P  f  f 
+  P Fg Fd 
 
-On remarque sur le tableau obtenu que le fils gauche d’un élément d’indice i se trouve
+Le fils gauche (Fg) d’un élément d’indice i (P) se trouve
 toujours s’il existe à la position 2i, et son fils droit se trouve à la position (2i + 1) et son
 père se trouve à la position i/2. Les opérations d’ajout et de retrait sur le tas statique se
 font de la même façon que dans le cas du tas dynamique. Avec ce principe les opérations
@@ -21,7 +29,7 @@ package com.structureDonnees.hierarchiques.tas;
 public class Main {
 
     public static void main(String[] args) {
-	Tas tas = new Tas(14);
+	Tas tas = new Tas(15);
 	tas.ajout(16);
 	tas.ajout(14);
 	tas.ajout(10);
