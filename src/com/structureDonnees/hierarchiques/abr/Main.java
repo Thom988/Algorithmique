@@ -73,7 +73,7 @@ public class Main {
 	System.out.println("\nRecherche d'un noeud :");
 	NoeudBinaire noeud = abr.rechercher(abr.getRacine(), 9);
 	if(noeud != null) {
-	    System.out.println("Le noeud " + noeud.getInfo() + "(" + noeud.getCle() + ") a Ã©tÃ© trouvÃ©");
+	    System.out.println("Le noeud " + noeud.getInfo() + "(" + noeud.getCle() + ") a été trouvé");
 	} else {
 	    System.out.println("le noeud n'existe pas dans cet arbre ou branche");
 	}

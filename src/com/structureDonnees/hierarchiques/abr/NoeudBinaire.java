@@ -11,10 +11,9 @@ public class NoeudBinaire {
 	this.info = info;
     }
     
-    public NoeudBinaire(String info, int cle, NoeudBinaire predecesseur) {
+    public NoeudBinaire(String info, int cle) {
 	this.info = info;
 	this.cle = cle;
-	this.predecesseur = predecesseur;
     }
 
     public int getCle() {
