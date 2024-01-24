@@ -1,4 +1,4 @@
-package com.structureDonnees.sequentielles.queue;
+package com.structureDonnees.sequentielles.queues;
 
 public class FileParDecalage {
     private int queue = 0;

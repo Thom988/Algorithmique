@@ -32,12 +32,12 @@ Chaînage interne séparé :
 
  */
 
-package com.structureDonnees.tables.hachage;
+package com.structureDonnees.tables.triees;
 
 public class Main {
 
     public static void main(String[] args) {
-	Hachage table = new Hachage();
+	Hachage table = new Hachage(24);
 	
 	int indice = 0;
 	System.out.println("Fonction hachage caractère : ");
@@ -59,6 +59,16 @@ public class Main {
 	System.out.println("Fonction hachage suite de Fibonacci : ");
 	indice = table.hachageDeFibonacci(62);
 	System.out.println("indice = " + indice);
+	
+	table.ajouter("maj", "Thom");
+	table.ajouter("adx", "Tom");
+	
+	System.out.println(table.acceder("maj"));
+	System.out.println(table.acceder("adx"));
+	
+	table.retirer("maj");
+	System.out.println(table.acceder("maj"));
+	
 	
 
     }

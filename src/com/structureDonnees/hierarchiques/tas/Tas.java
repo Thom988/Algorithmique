@@ -1,7 +1,7 @@
 package com.structureDonnees.hierarchiques.tas;
 
 import com.structureDonnees.hierarchiques.abr.NoeudBinaire;
-import com.structureDonnees.sequentielles.queue.FileParLLC;
+import com.structureDonnees.sequentielles.queues.FileParLLC;
 
 public class Tas {
 

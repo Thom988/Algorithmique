@@ -1,6 +1,6 @@
 package com.structureDonnees.hierarchiques.arbres;
 
-import com.structureDonnees.sequentielles.queue.FileParLLC;
+import com.structureDonnees.sequentielles.queues.FileParLLC;
 
 public class Arbre {
 
